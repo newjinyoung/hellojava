@@ -19,6 +19,7 @@ public class ClassTest {
 		System.out.println(p);
 		
 		
+		
 		Class[] parameterTypes = {String.class};
 		Constructor cons = c2.getConstructor(parameterTypes);
 		
