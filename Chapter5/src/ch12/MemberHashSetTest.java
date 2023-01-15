@@ -1,10 +1,12 @@
 package ch12;
 
+import ch13.MemberTreeSet;
+
 public class MemberHashSetTest {
 
 	public static void main(String[] args) {
 
-		MemberHashSet MemberHashSet = new MemberHashSet(0);
+		MemberTreeSet MemberHashSet = new MemberTreeSet(0);
 		
 		Member memberLee = new Member(1001, "이순신");
 		Member memberKim = new Member(1002, "김유신");
