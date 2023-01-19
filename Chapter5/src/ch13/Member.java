@@ -1,6 +1,6 @@
 package ch13;
 
-public class Member implements Comparable<Member> {
+public class Member implements Comparable<Member>{
 
 	private int memberId;        //회원 아이디
 	private String memberName;   //회원 이름
@@ -23,37 +23,32 @@ public class Member implements Comparable<Member> {
 		this.memberName = memberName;
 	}
 	
-	
-	@Override
-	public boolean equals(Object obj) {
-		
-		if( obj instanceof Member) {
-			Member member = (Member)obj;
-			if( this.memberId == member.memberId) {
-				return true;
-			}
-			else return false;
-		}
-		return false;
-	}
-	
-	@Override public int hashCode() {
-		return memberId;
-	}
-	
-	
 	@Override
 	public String toString(){   //toString 메소드 오버로딩
 		return memberName + " 회원님의 아이디는 " + memberId + "입니다";
 	}
-	
+
+	@Override
+	public int hashCode() {
+		return memberId;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if( obj instanceof Member){
+			Member member = (Member)obj;
+			if( this.memberId == member.memberId )
+				return true;
+			else 
+				return false;
+		}
+		return false;
+	}
+
 	@Override
 	public int compareTo(Member member) {
 		
-		if (this.memberId > member.memberId )
-			return 1;
-		else if( this.memberId < member.memberId)
-			return -1;
-		else return 0;
+		//return (this.memberId - member.memberId);   //오름차순
+		return (this.memberId - member.memberId) *  (-1);   //내림 차순
 	}
 }

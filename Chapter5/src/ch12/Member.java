@@ -2,6 +2,7 @@ package ch12;
 
 public class Member {
 
+
 	private int memberId;        //회원 아이디
 	private String memberName;   //회원 이름
 
@@ -22,25 +23,23 @@ public class Member {
 	public void setMemberName(String memberName) {
 		this.memberName = memberName;
 	}
-	
-	
+
+	@Override
+	public int hashCode() {
+		return memberId;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
-		
-		if( obj instanceof Member) {
+		if( obj instanceof Member){
 			Member member = (Member)obj;
-			if( this.memberId == member.memberId) {
+			if( this.memberId == member.memberId )
 				return true;
-			}
-			else return false;
+			else 
+				return false;
 		}
 		return false;
 	}
-	
-	@Override public int hashCode() {
-		return memberId;
-	}
-	
 	
 	@Override
 	public String toString(){   //toString 메소드 오버로딩
